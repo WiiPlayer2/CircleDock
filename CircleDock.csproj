@@ -27,6 +27,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>CircleDockIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Orbit.Utilities">
       <HintPath>deps\Orbit.Utilities.dll</HintPath>
@@ -163,6 +169,9 @@
     <EmbeddedResource Include="CircleDock\ImageResources.resx" />
     <EmbeddedResource Include="CircleDock\MainForm.resx" />
     <EmbeddedResource Include="SettingsPanel\DockSetup.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CircleDockIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
