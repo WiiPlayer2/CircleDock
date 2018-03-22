@@ -29,13 +29,13 @@ namespace FileOps
 
 		public string _Path;
 
-		public LanguageLoader Language;
+		public LanguageLoader.LanguageLoader Language;
 
-		public SettingsLoader DockSettings;
+		public SettingsLoader.SettingsLoader DockSettings;
 
 		private IntPtr ParentObjectHandle = IntPtr.Zero;
 
-		public FileOps(IntPtr theParent, string Path, LanguageLoader LanguageData, SettingsLoader SettingsData)
+		public FileOps(IntPtr theParent, string Path, LanguageLoader.LanguageLoader LanguageData, SettingsLoader.SettingsLoader SettingsData)
 		{
 			this.ParentObjectHandle = theParent;
 			this.Language = LanguageData;
@@ -71,7 +71,7 @@ namespace FileOps
 			this.GetFileInfo(this._Path);
 		}
 
-		public FileOps(IntPtr theParent, LanguageLoader LanguageData, SettingsLoader SettingsData)
+		public FileOps(IntPtr theParent, LanguageLoader.LanguageLoader LanguageData, SettingsLoader.SettingsLoader SettingsData)
 		{
 			this.ParentObjectHandle = theParent;
 			this.Language = LanguageData;
@@ -88,7 +88,7 @@ namespace FileOps
 			{
 				try
 				{
-					Win32.ShellExecute(IntPtr.Zero, "open", Path, "", "", Win32.ShowCommands.SW_SHOW);
+					Pinvoke.Win32.ShellExecute(IntPtr.Zero, "open", Path, "", "", Pinvoke.Win32.ShowCommands.SW_SHOW);
 				}
 				catch (Exception var_0_79)
 				{
@@ -223,7 +223,7 @@ namespace FileOps
 			Bitmap result;
 			if (Path != null && Path != "" && File.Exists(Path))
 			{
-				string a = Path.GetExtension(Path).ToLower();
+				string a = System.IO.Path.GetExtension(Path).ToLower();
 				if (a == ".png" || a == ".jpg" || a == ".gif" || a == ".bmp" || a == ".jpeg" || a == ".tiff")
 				{
 					try

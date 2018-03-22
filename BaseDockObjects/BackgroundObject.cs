@@ -155,7 +155,7 @@ namespace BaseDockObjects
 			base.WndProc(ref m);
 		}
 
-		public BackgroundObject(MainForm TheParent, LanguageLoader LanguageData, SettingsLoader SettingsData, string Section, Size InitialSize)
+		public BackgroundObject(MainForm TheParent, LanguageLoader.LanguageLoader LanguageData, SettingsLoader.SettingsLoader SettingsData, string Section, Size InitialSize)
 		{
 			this.Language = LanguageData;
 			this.DockSettings = SettingsData;
@@ -411,7 +411,7 @@ namespace BaseDockObjects
 			this.DockSettings.SetEntry("General", "IconReplacementMode", this.iconReplacementModeToolStripMenuItem.Checked.ToString());
 			if (this.DockSettings.General.IconReplacementMode)
 			{
-				FileOps fileOps = new FileOps(IntPtr.Zero, this.Language, this.DockSettings);
+				FileOps.FileOps fileOps = new FileOps.FileOps(IntPtr.Zero, this.Language, this.DockSettings);
 				fileOps.Open(Application.StartupPath + "\\System\\Icons", "", ProcessWindowStyle.Normal, base.Handle);
 			}
 		}

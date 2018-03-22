@@ -27,9 +27,9 @@ namespace PerPixelAlphaForms
 
 		public bool ThisObjectMovedWithLeftMouse;
 
-		public LanguageLoader Language;
+		public LanguageLoader.LanguageLoader Language;
 
-		public SettingsLoader DockSettings;
+		public SettingsLoader.SettingsLoader DockSettings;
 
 		public Size ObjectSize;
 

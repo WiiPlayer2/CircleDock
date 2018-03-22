@@ -16,7 +16,7 @@ namespace MemoryManagement
 				{
 					if (Environment.OSVersion.Platform >= PlatformID.Win32NT)
 					{
-						Win32.SetProcessWorkingSetSize(Process.GetCurrentProcess().Handle, -1, -1);
+						Pinvoke.Win32.SetProcessWorkingSetSize(Process.GetCurrentProcess().Handle, -1, -1);
 					}
 					else
 					{

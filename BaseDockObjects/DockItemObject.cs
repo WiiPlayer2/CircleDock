@@ -29,13 +29,13 @@ namespace BaseDockObjects
 
 		private OpenFileDialog ChangeIconDialog;
 
-		private DockItemSettingsLoader DockItemSettings;
+		private DockItemSettingsLoader.DockItemSettingsLoader DockItemSettings;
 
 		public string DockItemSectionName;
 
 		public int PreviousOpacity;
 
-		public FileOps FileOperations;
+		public FileOps.FileOps FileOperations;
 
 		public int dockOrderNum;
 
@@ -116,7 +116,7 @@ namespace BaseDockObjects
 			}
 		}
 
-		public DockItemObject(MainForm TheParent, LanguageLoader LanguageData, SettingsLoader SettingsData, DockItemSettingsLoader DockItemData, string SectionName, Size InitialSize, string Path)
+		public DockItemObject(MainForm TheParent, LanguageLoader.LanguageLoader LanguageData, SettingsLoader.SettingsLoader SettingsData, DockItemSettingsLoader.DockItemSettingsLoader DockItemData, string SectionName, Size InitialSize, string Path)
 		{
 			this.Language = LanguageData;
 			this.DockSettings = SettingsData;
@@ -163,7 +163,7 @@ namespace BaseDockObjects
 			{
 				if (this.DockItemSettings.GetEntry(this.DockItemSectionName, "Action") == "[link]")
 				{
-					this.FileOperations = new FileOps(IntPtr.Zero, this.DockItemSettings.GetEntry(this.DockItemSectionName, "Args"), this.Language, this.DockSettings);
+					this.FileOperations = new FileOps.FileOps(IntPtr.Zero, this.DockItemSettings.GetEntry(this.DockItemSectionName, "Args"), this.Language, this.DockSettings);
 					string entry = this.DockItemSettings.GetEntry(this.DockItemSectionName, "Name");
 					if (entry.Length > 0)
 					{
@@ -172,7 +172,7 @@ namespace BaseDockObjects
 				}
 				else if (this.DockItemSettings.GetEntry(this.DockItemSectionName, "Action") == "[dockfolder]")
 				{
-					this.FileOperations = new FileOps(IntPtr.Zero, this.Language, this.DockSettings);
+					this.FileOperations = new FileOps.FileOps(IntPtr.Zero, this.Language, this.DockSettings);
 					string entry = this.DockItemSettings.GetEntry(this.DockItemSectionName, "Name");
 					if (entry.Length > 0)
 					{

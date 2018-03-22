@@ -55,11 +55,11 @@ namespace CircleDock
 
 		private DockItemObject ParentObject;
 
-		private LanguageLoader Language;
+		private LanguageLoader.LanguageLoader Language;
 
-		private SettingsLoader DockSettings;
+		private SettingsLoader.SettingsLoader DockSettings;
 
-		private DockItemSettingsLoader DockItemSettings;
+		private DockItemSettingsLoader.DockItemSettingsLoader DockItemSettings;
 
 		private bool Loaded = false;
 
@@ -258,7 +258,7 @@ namespace CircleDock
 			base.PerformLayout();
 		}
 
-		public DockItemProperties(DockItemObject TheParent, LanguageLoader LanguageData, SettingsLoader SettingsData, DockItemSettingsLoader DockItemSettingsData, string SectionName)
+		public DockItemProperties(DockItemObject TheParent, LanguageLoader.LanguageLoader LanguageData, SettingsLoader.SettingsLoader SettingsData, DockItemSettingsLoader.DockItemSettingsLoader DockItemSettingsData, string SectionName)
 		{
 			this.ParentObject = TheParent;
 			this.Language = LanguageData;

@@ -16,7 +16,7 @@ namespace LanguageLoader
 
 		public MainContextMenu MainContextMenu;
 
-		public SettingsPanel SettingsPanel;
+		public LanguageInformation.SettingsPanel SettingsPanel;
 
 		public ErrorMessages ErrorMessages;
 
@@ -38,7 +38,7 @@ namespace LanguageLoader
 			this.General = default(General);
 			this.LanguageFile = default(LanguageFile);
 			this.MainContextMenu = default(MainContextMenu);
-			this.SettingsPanel = default(SettingsPanel);
+			this.SettingsPanel = default(LanguageInformation.SettingsPanel);
 			this.ErrorMessages = default(ErrorMessages);
 		}
 

@@ -24,14 +24,25 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
-    <Reference Include="GlobalMouseKeyboardHook" />
-    <Reference Include="AMS.Profile" />
-    <Reference Include="Orbit.Interop.Win32" />
-    <Reference Include="Interop.Shell32" />
+    <Reference Include="GlobalMouseKeyboardHook">
+      <HintPath>deps\GlobalMouseKeyboardHook.dll</HintPath>
+    </Reference>
+    <Reference Include="AMS.Profile">
+      <HintPath>deps\AMS.Profile.dll</HintPath>
+    </Reference>
+    <Reference Include="Orbit.Interop.Win32">
+      <HintPath>deps\Orbit.Interop.Win32.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.Shell32">
+      <HintPath>deps\Interop.Shell32.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseDockObjects\BackgroundObject.cs">

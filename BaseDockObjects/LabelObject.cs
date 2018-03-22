@@ -42,7 +42,7 @@ namespace BaseDockObjects
 			this.ParentObject.itemDeactivated();
 		}
 
-		public LabelObject(MainForm theParent, SettingsLoader SettingsData, Size DisplaySize)
+		public LabelObject(MainForm theParent, SettingsLoader.SettingsLoader SettingsData, Size DisplaySize)
 		{
 			this.ParentObject = theParent;
 			this.DockSettings = SettingsData;

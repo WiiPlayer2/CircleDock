@@ -507,17 +507,17 @@ namespace SettingsPanel
 
 		private MainForm ParentObject;
 
-		private LanguageLoader Language;
+		private LanguageLoader.LanguageLoader Language;
 
-		private SettingsLoader DockSettings;
+		private SettingsLoader.SettingsLoader DockSettings;
 
-		private DockItemSettingsLoader DockItemSettings;
+		private DockItemSettingsLoader.DockItemSettingsLoader DockItemSettings;
 
 		public string DockItemSectionName;
 
 		private bool Loaded = false;
 
-		public FileOps FileOperations;
+		public FileOps.FileOps FileOperations;
 
 		protected override void Dispose(bool disposing)
 		{
@@ -2883,14 +2883,14 @@ namespace SettingsPanel
 			base.ResumeLayout(false);
 		}
 
-		public DockSetup(MainForm TheParent, LanguageLoader LanguageData, SettingsLoader SettingsData, DockItemSettingsLoader DockItemSettingsData)
+		public DockSetup(MainForm TheParent, LanguageLoader.LanguageLoader LanguageData, SettingsLoader.SettingsLoader SettingsData, DockItemSettingsLoader.DockItemSettingsLoader DockItemSettingsData)
 		{
 			this.ParentObject = TheParent;
 			this.Language = LanguageData;
 			this.DockSettings = SettingsData;
 			this.DockItemSettings = DockItemSettingsData;
 			this.Loaded = false;
-			this.FileOperations = new FileOps(IntPtr.Zero, this.Language, SettingsData);
+			this.FileOperations = new FileOps.FileOps(IntPtr.Zero, this.Language, SettingsData);
 			this.InitializeComponent();
 			base.Size = new Size(base.Size.Width, (int)((double)SystemInformation.PrimaryMonitorSize.Height * 0.9));
 			this.InitializeSettings();
@@ -4353,7 +4353,7 @@ namespace SettingsPanel
 				KeysConverter keysConverter = new KeysConverter();
 				Keys keys = (Keys)keysConverter.ConvertFromString(this.ToggleVisiblityKey1.SelectedItem.ToString());
 				this.DockSettings.Toggling.VisibilityKey1 = (int)keys;
-				SettingsLoader arg_5C_0 = this.DockSettings;
+				SettingsLoader.SettingsLoader arg_5C_0 = this.DockSettings;
 				string arg_5C_1 = "Toggling";
 				string arg_5C_2 = "VisibilityKey1";
 				int num = (int)keys;

@@ -117,11 +117,11 @@ namespace CircleDock
 
 		public static ArrayList MainDockObjects;
 
-		public new LanguageLoader Language;
+		public new LanguageLoader.LanguageLoader Language;
 
-		public new SettingsLoader DockSettings;
+		public new SettingsLoader.SettingsLoader DockSettings;
 
-		public static DockItemSettingsLoader DockItemSettings;
+		public static DockItemSettingsLoader.DockItemSettingsLoader DockItemSettings;
 
 		public static string CurrentLevelShown;
 
@@ -238,9 +238,9 @@ namespace CircleDock
 
 		public MainForm()
 		{
-			this.DockSettings = new SettingsLoader(Application.StartupPath + "\\System\\Settings\\Config.ini");
+			this.DockSettings = new SettingsLoader.SettingsLoader(Application.StartupPath + "\\System\\Settings\\Config.ini");
 			this.LoadLanguage();
-			MainForm.DockItemSettings = new DockItemSettingsLoader(Application.StartupPath + "\\System\\Settings\\DockItemData.ini");
+			MainForm.DockItemSettings = new DockItemSettingsLoader.DockItemSettingsLoader(Application.StartupPath + "\\System\\Settings\\DockItemData.ini");
 			this.InitializeComponent();
 			this.DoubleBuffered = true;
 			this.AnimationTimer.Tick += new EventHandler(this.AnimationTimer_Tick);
@@ -328,11 +328,11 @@ namespace CircleDock
 			{
 				if (this.DockSettings.Language.path.StartsWith(".\\"))
 				{
-					this.Language = new LanguageLoader(Application.StartupPath + this.DockSettings.Language.path.Substring(1, this.DockSettings.Language.path.Length - 1));
+					this.Language = new LanguageLoader.LanguageLoader(Application.StartupPath + this.DockSettings.Language.path.Substring(1, this.DockSettings.Language.path.Length - 1));
 				}
 				else
 				{
-					this.Language = new LanguageLoader(this.DockSettings.Language.path);
+					this.Language = new LanguageLoader.LanguageLoader(this.DockSettings.Language.path);
 				}
 			}
 			else
@@ -661,7 +661,7 @@ namespace CircleDock
 							}
 							else
 							{
-								FileOps fileOps = new FileOps(IntPtr.Zero, MainForm.DockItemSettings.GetEntry(text, "Args"), this.Language, this.DockSettings);
+								FileOps.FileOps fileOps = new FileOps.FileOps(IntPtr.Zero, MainForm.DockItemSettings.GetEntry(text, "Args"), this.Language, this.DockSettings);
 								bitmap = new Bitmap(fileOps.RepresentativeImage);
 							}
 						}
@@ -1167,7 +1167,7 @@ namespace CircleDock
 			this.DockSettings.SetEntry("General", "IconReplacementMode", this.iconReplacementModeToolStripMenuItem.Checked.ToString());
 			if (this.DockSettings.General.IconReplacementMode)
 			{
-				FileOps fileOps = new FileOps(IntPtr.Zero, this.Language, this.DockSettings);
+				FileOps.FileOps fileOps = new FileOps.FileOps(IntPtr.Zero, this.Language, this.DockSettings);
 				fileOps.Open(Application.StartupPath + "\\System\\Icons", "", ProcessWindowStyle.Normal, IntPtr.Zero);
 			}
 		}
