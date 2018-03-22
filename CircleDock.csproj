@@ -1,156 +1,154 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
+    <ProjectGuid>{4441AAB6-FF28-44B5-8270-BA3907DA3C27}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C366D6FC-8726-48CB-98AB-2EF9BE3F507C}</ProjectGuid>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <OutputType>WinExe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CircleDock</RootNamespace>
     <AssemblyName>CircleDock</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ApplicationIcon>CircleDockIcon.ico</ApplicationIcon>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AMS.Profile, Version=2.0.1874.1294, Culture=neutral">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\AMS.Profile.dll</HintPath>
-    </Reference>
-    <Reference Include="Orbit.Interop.Win32, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\Orbit.Interop.Win32.dll</HintPath>
-    </Reference>
-    <Reference Include="Orbit.Utilities, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\Orbit.Utilities.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Xml.Linq">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="GlobalMouseKeyboardHook" />
+    <Reference Include="AMS.Profile" />
+    <Reference Include="Orbit.Interop.Win32" />
+    <Reference Include="Interop.Shell32" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DockItemsInformation.cs" />
-    <Compile Include="DockItemSettingsLoader.cs" />
-    <Compile Include="FileOps.cs">
-    </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="BaseDockObjects\BackgroundObject.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ImageOperations.cs" />
-    <Compile Include="LanguageInformation.cs" />
-    <Compile Include="LanguageLoader.cs" />
-    <Compile Include="SettingsInformation.cs" />
-    <Compile Include="SettingsLoader.cs" />
-    <Compile Include="User32API.cs" />
-    <Compile Include="WindowMessageConstants.cs" />
-    <Compile Include="ImageResources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ImageResources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="MainForm.cs">
+    <Compile Include="BaseDockObjects\CentreObject.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TransparentObject.cs">
+    <Compile Include="BaseDockObjects\DockItemObject.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PerPixelAlphaForm.cs">
+    <Compile Include="BaseDockObjects\LabelObject.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="CircleDock.Properties\Resources.cs" />
+    <Compile Include="CircleDock.Properties\Settings.cs" />
+    <Compile Include="CircleDock\DockItemProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CircleDock\ImageResources.cs" />
+    <Compile Include="CircleDock\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CircleDock\Program.cs" />
+    <Compile Include="Constants\ClassStyles.cs" />
+    <Compile Include="Constants\GCLConstants.cs" />
+    <Compile Include="Constants\GWLConstants.cs" />
+    <Compile Include="Constants\SendKeysConstants.cs" />
+    <Compile Include="Constants\ShellExecuteInfoConst.cs" />
+    <Compile Include="Constants\SPI.cs" />
+    <Compile Include="Constants\WindowExStyles.cs" />
+    <Compile Include="Constants\WindowMessageConstants.cs" />
+    <Compile Include="Constants\WindowStyles.cs" />
+    <Compile Include="DockItemSettingsLoader\DockItemSettingsLoader.cs" />
+    <Compile Include="DockItemsInformation\ObjectData.cs" />
+    <Compile Include="FastBitmapProcessing\FastBitmap.cs" />
+    <Compile Include="FileOps\FileOps.cs" />
+    <Compile Include="Hook\Hooks.cs" />
+    <Compile Include="Hook\OnForegroundWindowChangedDelegate.cs" />
+    <Compile Include="Hook\OnWindowCreateDelegate.cs" />
+    <Compile Include="Hook\OnWindowDestroyDelegate.cs" />
+    <Compile Include="Hook\OnWindowMinimizeEndDelegate.cs" />
+    <Compile Include="Hook\OnWindowMinimizeStartDelegate.cs" />
+    <Compile Include="IconsAndShortcuts\MsiShortcutParser.cs" />
+    <Compile Include="ImageOperations\BitmapOperations.cs" />
+    <Compile Include="ImageOperations\FancyText.cs" />
+    <Compile Include="LanguageInformation\DockItemProperties.cs" />
+    <Compile Include="LanguageInformation\ErrorMessages.cs" />
+    <Compile Include="LanguageInformation\General.cs" />
+    <Compile Include="LanguageInformation\LanguageFile.cs" />
+    <Compile Include="LanguageInformation\MainContextMenu.cs" />
+    <Compile Include="LanguageInformation\SettingsPanel.cs" />
+    <Compile Include="LanguageLoader\LanguageLoader.cs" />
+    <Compile Include="MemoryManagement\MemoryUtility.cs" />
+    <Compile Include="PerPixelAlphaForms\BackgroundPerPixelAlphaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PerPixelAlphaForms\DockItemPerPixelAlphaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PerPixelAlphaForms\InvisiblePerPixelAlphaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PerPixelAlphaForms\LabelPerPixelAlphaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PerPixelAlphaForms\PerPixelAlphaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PerPixelAlphaForms\Win32.cs" />
+    <Compile Include="Pinvoke\ImageListThumbnailGenerator.cs" />
+    <Compile Include="Pinvoke\ThumbnailGenerator.cs" />
+    <Compile Include="Pinvoke\Win32.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ImageResources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>ImageResources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TransparentObject.resx">
-      <DependentUpon>TransparentObject.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
+    <Compile Include="SettingsInformation\Background.cs" />
+    <Compile Include="SettingsInformation\CentreImage.cs" />
+    <Compile Include="SettingsInformation\CircleParams.cs" />
+    <Compile Include="SettingsInformation\DockItems.cs" />
+    <Compile Include="SettingsInformation\EllipseParams.cs" />
+    <Compile Include="SettingsInformation\Folders.cs" />
+    <Compile Include="SettingsInformation\General.cs" />
+    <Compile Include="SettingsInformation\GeneralAnimation.cs" />
+    <Compile Include="SettingsInformation\Labels.cs" />
+    <Compile Include="SettingsInformation\Language.cs" />
+    <Compile Include="SettingsInformation\ObjectShape.cs" />
+    <Compile Include="SettingsInformation\PoofAnimation.cs" />
+    <Compile Include="SettingsInformation\Toggling.cs" />
+    <Compile Include="SettingsLoader\SettingsLoader.cs" />
+    <Compile Include="SettingsPanel\DockSetup.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
+    <Compile Include="ShellDll\ShellAPI.cs" />
+    <Compile Include="ShellExtension\HookEventArgs.cs" />
+    <Compile Include="ShellExtension\HookType.cs" />
+    <Compile Include="ShellExtension\LocalWindowsHook.cs" />
+    <Compile Include="ShellExtension\ShellContextMenu.cs" />
+    <Compile Include="ShellExtension\ShellContextMenuException.cs" />
+    <Compile Include="ShellExtension\ShellHelper.cs" />
+    <Compile Include="SingleInstance\SingleApplication.cs" />
+    <Compile Include="vbAccelerator.Components.ImageList\ImageListDrawItemConstants.cs" />
+    <Compile Include="vbAccelerator.Components.ImageList\ImageListDrawStateConstants.cs" />
+    <Compile Include="vbAccelerator.Components.ImageList\ShellIconStateConstants.cs" />
+    <Compile Include="vbAccelerator.Components.ImageList\SysImageList.cs" />
+    <Compile Include="vbAccelerator.Components.ImageList\SysImageListHelper.cs" />
+    <Compile Include="vbAccelerator.Components.ImageList\SysImageListSize.cs" />
+    <Compile Include="VistaToolbelt.Interop.Native\IShellItem.cs" />
+    <Compile Include="VistaToolbelt.Interop.Native\IShellItemImageFactory.cs" />
+    <Compile Include="VistaToolbelt.Interop.Native\SafeNativeMethods.cs" />
+    <Compile Include="VistaToolbelt.Interop.Native\SIGDN.cs" />
+    <Compile Include="VistaToolbelt.Interop.Native\SIIGBF.cs" />
+    <Compile Include="VistaToolbelt.Interop.Native\SIZE.cs" />
+    <Compile Include="VistaToolbelt.Interop.Native\UnsafeNativeMethods.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CircleDockIcon.ico" />
-    <None Include="sapphire_ring.png" />
-    <None Include="MissingIcon.png" />
-    <None Include="app.config" />
-    <None Include="CircleDockIconCentreImage.png" />
+    <EmbeddedResource Include="CircleDock\ImageResources.resx" />
+    <EmbeddedResource Include="CircleDock\MainForm.resx" />
+    <EmbeddedResource Include="SettingsPanel\DockSetup.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
